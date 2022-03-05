@@ -1,0 +1,28 @@
+@import "../scss/variables.scss";
+
+.appHeader {
+  padding: 25px 0 50px 0;
+
+  .logo {
+    height: 65px;
+  }
+
+  .searchBar {
+    min-width: 400px;
+    text-align: left;
+    padding: 5px 10px;
+    border: 1px solid $grey;
+    border-radius: 4px;
+    @media only screen and (max-width: 850px) {
+      min-width: 300px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .searchBar:focus {
+    outline-width: 0;
+}
+}

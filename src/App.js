@@ -5,10 +5,12 @@ import ContactsPage from "./pages/ContactsPage";
 import NewContactPage from "./pages/NewContactPage";
 import EditContactPage from "./pages/EditContactPage";
 import ContactDetailsPage from "./pages/ContactDetailsPage";
+import Header from "./components/Header";
 
 function App() {
   return (
     <div>
+      <Header/>
       <Switch>
         <Route path="/" exact>
           <ContactsPage />
