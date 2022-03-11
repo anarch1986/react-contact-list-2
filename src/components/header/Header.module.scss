@@ -1,10 +1,14 @@
-@import "../scss/variables.scss";
+@import "../../scss/variables.scss";
 
 .appHeader {
   padding: 25px 0 50px 0;
 
   .logo {
     height: 65px;
+  }
+
+  .logoContainer :hover {
+    cursor: pointer;
   }
 
   .searchBar {

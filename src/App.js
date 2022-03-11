@@ -5,9 +5,15 @@ import ContactsPage from "./pages/ContactsPage";
 import NewContactPage from "./pages/NewContactPage";
 import EditContactPage from "./pages/EditContactPage";
 import ContactDetailsPage from "./pages/ContactDetailsPage";
-import Header from "./components/Header";
+import Header from "./components/header/Header";
+import Footer from "./components/footer/Footer";
+import AddNewButton from "./components/addNewButton/AddNewButton"
 
-function App() {
+
+function App(props) {
+
+
+
   return (
     <div>
       <Header/>
@@ -25,6 +31,8 @@ function App() {
           <ContactDetailsPage />
         </Route>
       </Switch>
+      <Footer/>
+      <AddNewButton/>
     </div>
   );
 }

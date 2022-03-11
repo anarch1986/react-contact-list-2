@@ -2,5 +2,16 @@
 
 @font-face {
   font-family: "OpenSansRegular";
-  src: local("OpenSansRegular"), url(./assets/fonts/OpenSans-Regular.ttf) format('truetype');
+  src: local("OpenSansRegular"),
+    url(./assets/fonts/OpenSans-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "OpenSansBold";
+  src: local("OpenSansBold"),
+    url(./assets/fonts/OpenSans-Bold.ttf) format("truetype");
+}
+
+b {
+  font-family: "OpenSansBold";
 }

@@ -1,0 +1,23 @@
+@import "../../scss/variables.scss";
+
+.addNewButton {
+  background-color: $red;
+  color: $white;
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  border-radius: 50%;
+  right: 30px;
+  bottom: 75px;
+  font-size: 32px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  transition:0.3s;
+}
+
+.addNewButton:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}

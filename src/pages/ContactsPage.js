@@ -1,4 +1,4 @@
-import ContactList from "../components/ContactList";
+import ContactList from "../components/contactList/ContactList";
 
 function ContactsPage() {
   return (<ContactList/>);
