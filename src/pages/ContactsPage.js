@@ -2,6 +2,7 @@
 import { css } from "@emotion/react";
 import { Container, Row, Col } from "react-bootstrap";
 
+import { colors } from '../theme.js'
 import ContactList from "../components/ContactList";
 
 function ContactsPage() {
@@ -24,7 +25,7 @@ function ContactsPage() {
           <div
             className="mx-auto"
             css={css`
-              background-color: #e60000;
+              background-color: ${colors.red};
               height: 3px;
               width: 60px;
               margin: 0 0 20px 0;

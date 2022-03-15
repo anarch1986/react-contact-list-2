@@ -1,7 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-
 import { useHistory } from "react-router-dom";
+
+import { colors } from '../theme.js'
 
 
 
@@ -15,8 +16,8 @@ function AddNewButton(props) {
   return (
     <div
       css={css`
-        background-color: #e60000;
-        color: #ffffff;
+        background-color: ${colors.red};
+        color:  ${colors.white};
         width: 60px;
         height: 60px;
         position: fixed;

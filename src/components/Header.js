@@ -1,11 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import { Container, Row, Col } from "react-bootstrap";
+import { useHistory, useLocation } from "react-router-dom";
+
+import { colors } from "../theme.js";
 import { ReactComponent as VodafoneLogo } from "../assets/images/vodafone_logo.svg";
-import { useHistory } from "react-router-dom";
 
 function Header() {
   const history = useHistory();
+  const location = useLocation();
 
   function inputHandler(inputEvent) {
     console.log(inputEvent.target.value.toLowerCase());
@@ -37,33 +40,35 @@ function Header() {
             onClick={handleOnLogoClick}
           />
         </Col>
-        <Col md={6}>
-          <input
-            css={css`
-              min-width: 400px;
-              text-align: left;
-              padding: 5px 10px;
-              border: 1px solid #aaaaaa;
-              border-radius: 4px;
+        {location.pathname === "/" && (
+          <Col md={6}>
+            <input
+              css={css`
+                min-width: 400px;
+                text-align: left;
+                padding: 5px 10px;
+                border: 1px solid ${colors.grey};
+                border-radius: 4px;
 
-              @media (max-width: 850px) {
-                min-width: 300px;
-              }
+                @media (max-width: 850px) {
+                  min-width: 300px;
+                }
 
-              @media (max-width: 768px) {
-                display: none;
-              }
+                @media (max-width: 768px) {
+                  display: none;
+                }
 
-              &:focus {
-                outline-width: 0;
-              }
-            `}
-            type="text"
-            id="header-search"
-            onChange={inputHandler}
-            placeholder="Search for contact"
-          />
-        </Col>
+                &:focus {
+                  outline-width: 0;
+                }
+              `}
+              type="text"
+              id="header-search"
+              onChange={inputHandler}
+              placeholder="Search for contact"
+            />
+          </Col>
+        )}
       </Row>
     </Container>
   );
