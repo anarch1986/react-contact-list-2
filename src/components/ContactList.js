@@ -1,6 +1,6 @@
 import { Container, Row } from "react-bootstrap";
 
-import ContactCard from "../contactCard/ContactCard";
+import ContactCard from "./ContactCard";
 
 
 function ContactList() {

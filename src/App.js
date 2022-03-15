@@ -5,9 +5,9 @@ import ContactsPage from "./pages/ContactsPage";
 import NewContactPage from "./pages/NewContactPage";
 import EditContactPage from "./pages/EditContactPage";
 import ContactDetailsPage from "./pages/ContactDetailsPage";
-import Header from "./components/header/Header";
-import Footer from "./components/footer/Footer";
-import AddNewButton from "./components/addNewButton/AddNewButton"
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import AddNewButton from "./components/AddNewButton"
 
 
 function App(props) {
