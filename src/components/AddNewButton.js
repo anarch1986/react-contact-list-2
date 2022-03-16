@@ -32,7 +32,7 @@ function AddNewButton(props) {
         transition: 0.3s;
         &:hover {
           transform: scale(1.2);
-          cursor: pointer;®
+          cursor: pointer;
         }
       `}
       onClick={handleOnClick}
