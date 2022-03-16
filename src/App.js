@@ -1,17 +1,17 @@
 import { Route, Switch } from "react-router-dom";
-import { useState, useEffect, useContext, /*useRef*/ } from "react";
+import { useState, useEffect, useContext /*useRef*/ } from "react";
 
 import "./App.scss";
 import ContactsPage from "./pages/ContactsPage";
 import NewContactPage from "./pages/NewContactPage";
 import EditContactPage from "./pages/EditContactPage";
 import ContactDetailsPage from "./pages/ContactDetailsPage";
+import NotFoundPage from "./pages/NotFoundPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
-import AddNewButton from "./components/AddNewButton"
+import AddNewButton from "./components/AddNewButton";
 import ContactsContext from "./data/contacts-context";
-
 
 function App(props) {
   const [isLoading, setIsLoading] = useState(true);
@@ -28,33 +28,36 @@ function App(props) {
 
   function renderApp() {
     if (isLoading) {
-      return <Loader/>
+      return <Loader />;
     } else {
-      return <div>
-      <Header/>
-      <Switch>
-        <Route path="/" exact>
-          <ContactsPage />
-        </Route>
-        <Route path="/new-contact">
-          <NewContactPage />
-        </Route>
-        <Route path="/edit-contact">
-          <EditContactPage />
-        </Route>
-        <Route path="/contact-details/:contactId">
-          <ContactDetailsPage />
-        </Route>
-      </Switch>
-      <Footer/>
-      <AddNewButton/>
-    </div>
+      return (
+        <div>
+          <Header />
+          <Switch>
+            <Route path="/" exact>
+              <ContactsPage />
+            </Route>
+            <Route path="/new-contact">
+              <NewContactPage />
+            </Route>
+            <Route path="/edit-contact/:contactId">
+              <EditContactPage />
+            </Route>
+            <Route path="/contact-details/:contactId">
+              <ContactDetailsPage />
+            </Route>
+            <Route path="*">
+              <NotFoundPage />
+            </Route>
+          </Switch>
+          <Footer />
+          <AddNewButton />
+        </div>
+      );
     }
   }
 
-  return (
-    renderApp()
-  );
+  return renderApp();
 }
 
 export default App;

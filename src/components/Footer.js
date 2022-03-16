@@ -10,6 +10,10 @@ function Footer() {
         position: fixed;
         left: 0;
         bottom: 0;
+
+        @media (max-width: 992px) {
+          position: relative;
+        }
       `}
     >
       <div

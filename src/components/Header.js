@@ -27,7 +27,7 @@ function Header() {
   return (
     <Container
       css={css`
-        padding: 25px 0 50px 0;
+        padding: 25px 0 20px 0;
       `}
     >
       <Row>
@@ -42,6 +42,10 @@ function Header() {
           <VodafoneLogo
             css={css`
               height: 65px;
+              padding-right: 300px;
+              @media (max-width: 992px) {
+                padding-right: 0;
+              }
             `}
             onClick={handleOnLogoClick}
           />

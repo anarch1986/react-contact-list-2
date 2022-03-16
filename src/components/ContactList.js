@@ -1,19 +1,16 @@
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 import ContactCard from "./ContactCard";
 
-
-function ContactList() {
+function ContactList(props) {
   return (
     <Container>
       <Row>
-        <ContactCard />
-        <ContactCard />
-        <ContactCard />
-        <ContactCard />
-        <ContactCard />
-        <ContactCard />
-        <ContactCard />
+        {props.contacts.map((contactItem) => (
+          <Col lg={4}>
+            <ContactCard key={contactItem.uid} contact={contactItem} />
+          </Col>
+        ))}
       </Row>
     </Container>
   );

@@ -14,14 +14,14 @@ export function ContactsContextProvider(props) {
 
   async function getAllContactsHandler() {
     const response = await fetch(
-      "https://randomuser.me/api/?results=10"
+      "https://randomuser.me/api/?nat=gb&results=10"
     );
     const responseJson = await response.json();
     const contacts = [];
 
     for (const key in responseJson.results) {
       const contact = {
-        id: key,
+        uid: key,
         ...responseJson.results[key],
       };
       contacts.push(contact);
