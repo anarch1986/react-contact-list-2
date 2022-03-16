@@ -10,7 +10,7 @@ function AddNewButton(props) {
   const history = useHistory();
 
   function handleOnClick() {
-    history.push("/new-contact");
+    history.push("/new");
   }
 
   return (

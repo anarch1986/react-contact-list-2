@@ -1,5 +1,5 @@
 import { Route, Switch } from "react-router-dom";
-import { useState, useEffect, useContext /*useRef*/ } from "react";
+import { useState, useEffect, useContext } from "react";
 
 import "./App.scss";
 import ContactsPage from "./pages/ContactsPage";
@@ -34,16 +34,16 @@ function App(props) {
         <div>
           <Header />
           <Switch>
-            <Route path="/" exact>
+            <Route exact path="/">
               <ContactsPage />
             </Route>
-            <Route path="/new-contact">
+            <Route path="/new">
               <NewContactPage />
             </Route>
-            <Route path="/edit-contact/:contactId">
+            <Route exact path="/edit/:id">
               <EditContactPage />
             </Route>
-            <Route path="/contact-details/:contactId">
+            <Route exact path="/details/:id">
               <ContactDetailsPage />
             </Route>
             <Route path="*">

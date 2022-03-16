@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 import { colors } from "../theme.js";
 
@@ -8,7 +8,7 @@ function ContactCard(props) {
 	const history = useHistory();
 
 	function handleOnclick() {
-		history.push("/contact-details/" + props.contact.uid);
+		history.push("details/" + props.contact.uid);
 	}
   return (
     <div

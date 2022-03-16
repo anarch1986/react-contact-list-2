@@ -7,8 +7,8 @@ function ContactList(props) {
     <Container>
       <Row>
         {props.contacts.map((contactItem) => (
-          <Col lg={4}>
-            <ContactCard key={contactItem.uid} contact={contactItem} />
+          <Col lg={4} key={contactItem.uid}>
+            <ContactCard contact={contactItem} />
           </Col>
         ))}
       </Row>
