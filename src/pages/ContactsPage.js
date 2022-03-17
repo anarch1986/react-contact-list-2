@@ -1,7 +1,7 @@
 import { useState, useContext, Fragment } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-import ContactsContext from "../data/contacts-context";
+import ContactsContext from "../state/contacts-context";
 import PageTitle from "../components/PageTitle";
 import ContactList from "../components/ContactList";
 import LetterBar from "../components/LetterBar";

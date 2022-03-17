@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { ContactsContextProvider } from "./data/contacts-context";
+import { ContactsContextProvider } from "./state/contacts-context";
 import { BrowserRouter } from "react-router-dom";
 
 import "./index.scss";

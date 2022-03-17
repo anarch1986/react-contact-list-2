@@ -11,7 +11,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 import AddNewButton from "./components/AddNewButton";
-import ContactsContext from "./data/contacts-context";
+import ContactsContext from "./state/contacts-context";
 
 function App(props) {
   const [isLoading, setIsLoading] = useState(true);

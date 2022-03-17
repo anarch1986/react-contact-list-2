@@ -13,10 +13,6 @@ function PageTitle(props) {
             css={css`
               margin: 20px 0 0 0;
               font-size: 32px;
-
-              &:hover {
-                cursor: pointer;
-              }
             `}
           >
             <b>{props.pageTitle}</b>

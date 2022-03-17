@@ -83,7 +83,7 @@ function Header() {
               />
             </Col>
             <Col
-              lg={2}
+              lg={1}
               css={css`
                 @media (max-width: 992px) {
                   padding-top: 20px;

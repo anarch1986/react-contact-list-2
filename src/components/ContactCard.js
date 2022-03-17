@@ -8,7 +8,7 @@ function ContactCard(props) {
 	const history = useHistory();
 
 	function handleOnclick() {
-		history.push("details/" + props.contact.uid);
+		history.push("/details/" + props.contact.uid);
 	}
   return (
     <div

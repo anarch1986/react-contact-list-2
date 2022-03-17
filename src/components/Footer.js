@@ -1,13 +1,18 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import { useContext } from "react";
+
+import ContactsContext from "../state/contacts-context";
 
 function Footer() {
+  const contactsContext = useContext(ContactsContext);
+
   return (
     <div
       css={css`
         padding: 50px 0 50px 0;
         width: 100%;
-        position: fixed;
+        position: ${contactsContext.contacts.length > 12 ? "relative" : "fixed"};
         left: 0;
         bottom: 0;
 

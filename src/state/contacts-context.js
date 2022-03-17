@@ -27,23 +27,26 @@ export function ContactsContextProvider(props) {
       contacts.push(contact);
     }
 
-    console.log(contacts)
-    
+    console.log(contacts);
+
     setContacts(() => {
       return contacts;
     });
   }
 
   async function createContactHandler(contact) {
-    return
+    return;
   }
 
-  //function removeMeetupHanlder(meetupId) {}
+  async function deleteContactHandler(id) {
+    setContacts(loadedContacts.filter((contact) => contact.uid !== id));
+  }
 
   const context = {
     contacts: loadedContacts,
     getAllContacts: getAllContactsHandler,
     createContact: createContactHandler,
+    deleteContact: deleteContactHandler,
   };
 
   return (
@@ -54,4 +57,3 @@ export function ContactsContextProvider(props) {
 }
 
 export default ContactsContext;
-
