@@ -25,16 +25,15 @@ export function ContactsContextProvider(props) {
       };
       contacts.push(contact);
     }
-
-    console.log(contacts);
-
     setContacts(() => {
       return contacts;
     });
   }
 
   async function createContactHandler(contact) {
-    return;
+    const orderedContacts = loadedContacts.sort((a, b) => (a.uid > b.uid) ? 1 : -1)
+    contact.uid = (orderedContacts[orderedContacts.length - 1].uid)+1
+    loadedContacts.push(contact)
   }
 
   async function updateContactHandler(updatedContact) {

@@ -5,27 +5,27 @@ import { useHistory } from "react-router-dom";
 import { colors } from "../theme.js";
 
 function ContactCard(props) {
-	const history = useHistory();
+  const history = useHistory();
 
-	function handleOnclick() {
-		history.push("/details/" + props.contact.uid);
-	}
+  function handleOnclick() {
+    history.push("/details/" + props.contact.uid);
+  }
   return (
     <div
       css={css`
         display: flex;
-		padding: 10px;
-		margin: 10px;
-		box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-		border-radius: 2%;
-		transition: 0.3s;
+        min-height: 120px;
+        padding: 10px;
+        margin: 10px;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        border-radius: 2%;
+        transition: 0.3s;
         &:hover {
           transform: scale(1.1);
           cursor: pointer;
         }
       `}
-
-	  onClick={handleOnclick}
+      onClick={handleOnclick}
     >
       <div>
         <img
@@ -46,7 +46,7 @@ function ContactCard(props) {
           css={css`
             text-align: left;
             font-size: 20px;
-			word-break:break-all;
+            word-break: break-all;
           `}
         >
           <b>{props.contact.name.last + ", " + props.contact.name.first}</b>
@@ -55,7 +55,7 @@ function ContactCard(props) {
           css={css`
             text-align: left;
             color: ${colors.grey};
-			word-break:break-all;
+            word-break: break-all;
           `}
         >
           {props.contact.email}
@@ -64,7 +64,7 @@ function ContactCard(props) {
           css={css`
             text-align: left;
             color: ${colors.grey};
-			word-break:break-all;
+            word-break: break-all;
           `}
         >
           {props.contact.phone}

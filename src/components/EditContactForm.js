@@ -64,13 +64,13 @@ function EditContactForm(props) {
   }, [props.contact]);
 
   function validateForm() {
-    let isValid = true
+    let isValid = true;
     if (validateFiled(firstNameInputRef.current.value)) {
       contact.name.first = firstNameInputRef.current.value;
       setIsFirstNameError(false);
     } else {
       setIsFirstNameError(true);
-      isValid = false
+      isValid = false;
     }
 
     if (validateFiled(lastNameInputRef.current.value)) {
@@ -78,7 +78,7 @@ function EditContactForm(props) {
       setIsLastNameError(false);
     } else {
       setIsLastNameError(true);
-      isValid = false
+      isValid = false;
     }
 
     if (validateEmail(emailInputRef.current.value)) {
@@ -86,7 +86,7 @@ function EditContactForm(props) {
       setIsEmailError(false);
     } else {
       setIsEmailError(true);
-      isValid = false
+      isValid = false;
     }
 
     if (validateFiled(phoneInputRef.current.value)) {
@@ -94,10 +94,10 @@ function EditContactForm(props) {
       setIsPhoneError(false);
     } else {
       setIsPhoneError(true);
-      isValid = false
+      isValid = false;
     }
 
-    return isValid
+    return isValid;
   }
 
   function handleOnClick() {
@@ -136,22 +136,46 @@ function EditContactForm(props) {
                 type="text"
                 ref={firstNameInputRef}
               />
-              <br />
             </Form.Group>
-            {isFirstNameError && (
-              <small
-                css={css`
-                  color: ${colors.red};
-                `}
-              >
-                Please provide a valid First Name
-              </small>
-            )}
-
+            <div
+              css={css`
+                text-align: left;
+                padding-left: 210px;
+                @media (max-width: 1200px) {
+                  padding-left: 150px;
+                }
+                @media (max-width: 992px) {
+                  padding-left: 220px;
+                }
+                @media (max-width: 768px) {
+                  padding-left: 170px;
+                }
+                @media (max-width: 576px) {
+                  padding-left: 160px;
+                }
+                @media (max-width: 470px) {
+                  padding-left: 140px;
+                }
+                @media (max-width: 400px) {
+                  padding-left: 120px;
+                }
+              `}
+            >
+              {isFirstNameError ? (
+                <small
+                  css={css`
+                    color: ${colors.red};
+                  `}
+                >
+                  Please provide a valid First Name
+                </small>
+              ) : (
+                <small>&nbsp;</small>
+              )}
+            </div>
             <Form.Group
               css={css`
                 display: flex;
-                margin-top: 15px;
               `}
             >
               <Form.Label
@@ -171,19 +195,45 @@ function EditContactForm(props) {
                 ref={lastNameInputRef}
               />
             </Form.Group>
-            {isLastNameError && (
-              <small
-                css={css`
-                  color: ${colors.red};
-                `}
-              >
-                Please provide a valid Last Name
-              </small>
-            )}
+            <div
+              css={css`
+                text-align: left;
+                padding-left: 210px;
+                @media (max-width: 1200px) {
+                  padding-left: 150px;
+                }
+                @media (max-width: 992px) {
+                  padding-left: 220px;
+                }
+                @media (max-width: 768px) {
+                  padding-left: 170px;
+                }
+                @media (max-width: 576px) {
+                  padding-left: 160px;
+                }
+                @media (max-width: 470px) {
+                  padding-left: 140px;
+                }
+                @media (max-width: 400px) {
+                  padding-left: 120px;
+                }
+              `}
+            >
+              {isLastNameError ? (
+                <small
+                  css={css`
+                    color: ${colors.red};
+                  `}
+                >
+                  Please provide a valid Last Name
+                </small>
+              ) : (
+                <small>&nbsp;</small>
+              )}
+            </div>
             <Form.Group
               css={css`
                 display: flex;
-                margin-top: 15px;
               `}
             >
               <Form.Label
@@ -203,19 +253,45 @@ function EditContactForm(props) {
                 ref={emailInputRef}
               />
             </Form.Group>
-            {isEmailError && (
-              <small
-                css={css`
-                  color: ${colors.red};
-                `}
-              >
-                Please provide a valid Email
-              </small>
-            )}
+            <div
+              css={css`
+                text-align: left;
+                padding-left: 210px;
+                @media (max-width: 1200px) {
+                  padding-left: 150px;
+                }
+                @media (max-width: 992px) {
+                  padding-left: 220px;
+                }
+                @media (max-width: 768px) {
+                  padding-left: 170px;
+                }
+                @media (max-width: 576px) {
+                  padding-left: 160px;
+                }
+                @media (max-width: 470px) {
+                  padding-left: 140px;
+                }
+                @media (max-width: 400px) {
+                  padding-left: 120px;
+                }
+              `}
+            >
+              {isEmailError ? (
+                <small
+                  css={css`
+                    color: ${colors.red};
+                  `}
+                >
+                  Please provide a valid Email
+                </small>
+              ) : (
+                <small>&nbsp;</small>
+              )}
+            </div>
             <Form.Group
               css={css`
                 display: flex;
-                margin-top: 15px;
               `}
             >
               <Form.Label
@@ -235,15 +311,42 @@ function EditContactForm(props) {
                 ref={phoneInputRef}
               />
             </Form.Group>
-            {isPhoneError && (
-              <small
-                css={css`
-                  color: ${colors.red};
-                `}
-              >
-                Please provide a valid Phone number
-              </small>
-            )}
+            <div
+              css={css`
+                text-align: left;
+                padding-left: 210px;
+                @media (max-width: 1200px) {
+                  padding-left: 150px;
+                }
+                @media (max-width: 992px) {
+                  padding-left: 220px;
+                }
+                @media (max-width: 768px) {
+                  padding-left: 170px;
+                }
+                @media (max-width: 576px) {
+                  padding-left: 160px;
+                }
+                @media (max-width: 470px) {
+                  padding-left: 140px;
+                }
+                @media (max-width: 400px) {
+                  padding-left: 120px;
+                }
+              `}
+            >
+              {isPhoneError ? (
+                <small
+                  css={css`
+                    color: ${colors.red};
+                  `}
+                >
+                  Please provide a valid Phone number
+                </small>
+              ) : (
+                <small>&nbsp;</small>
+              )}
+            </div>
             <Button
               variant="outline-dark"
               css={css`

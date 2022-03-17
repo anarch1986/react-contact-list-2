@@ -16,7 +16,7 @@ function Footer() {
         left: 0;
         bottom: 0;
 
-        @media (max-width: 992px) {
+        @media (max-width: 1400px) {
           position: relative;
         }
       `}
