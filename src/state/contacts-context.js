@@ -3,10 +3,9 @@ import { createContext, useState } from "react";
 const ContactsContext = createContext({
   contacts: [],
   getAllContacts: () => {},
-  getContact: (contact) => {},
   createContact: (contact) => {},
-  updateContact: (contact) => {},
-  deleteContact: (contact) => {},
+  updateContact: (updatedContact) => {},
+  deleteContact: (id) => {},
 });
 
 export function ContactsContextProvider(props) {
@@ -38,6 +37,11 @@ export function ContactsContextProvider(props) {
     return;
   }
 
+  async function updateContactHandler(updatedContact) {
+    const oldContact = loadedContacts.filter((contact) => contact.uid !== updatedContact.uid)[0]
+    loadedContacts[oldContact] = updatedContact
+  }
+
   async function deleteContactHandler(id) {
     setContacts(loadedContacts.filter((contact) => contact.uid !== id));
   }
@@ -46,6 +50,7 @@ export function ContactsContextProvider(props) {
     contacts: loadedContacts,
     getAllContacts: getAllContactsHandler,
     createContact: createContactHandler,
+    updateContact: updateContactHandler,
     deleteContact: deleteContactHandler,
   };
 
