@@ -1,4 +1,4 @@
-import { useState, useContext, Fragment } from "react";
+import { useState, useContext, useEffect, Fragment } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 import ContactsContext from "../state/contacts-context";
@@ -6,10 +6,22 @@ import PageTitle from "../components/PageTitle";
 import ContactList from "../components/ContactList";
 import LetterBar from "../components/LetterBar";
 
-function ContactsPage() {
+function ContactsPage(props) {
   const contactsContext = useContext(ContactsContext);
 
   const [contactsList, setContactList] = useState(contactsContext.contacts);
+
+  useEffect(() => {
+    if (props.contactSearch && props.contactSearch.trim() !== "") {
+      const filteredContacts = contactsContext.contacts.filter(
+        (contact) =>
+          (contact.name.first.toLowerCase() + contact.name.last.toLowerCase())
+            .includes(props.contactSearch.trim().toLowerCase())
+      );
+      setContactList(filteredContacts);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.contactSearch]);
 
   function filterContacts(letter) {
     const filteredContacts = contactsContext.contacts.filter(
@@ -24,7 +36,7 @@ function ContactsPage() {
 
   return (
     <Fragment>
-      <PageTitle pageTitle="Contacts"/>
+      <PageTitle pageTitle="Contacts" />
       <Container>
         <Row>
           <Col>

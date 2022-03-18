@@ -18,6 +18,7 @@ import ContactsContext from "./state/contacts-context";
 
 function App(props) {
   const [isLoading, setIsLoading] = useState(true);
+  const [searchString, setSearchString] = useState("");
 
   const contactsContext = useContext(ContactsContext);
 
@@ -29,6 +30,10 @@ function App(props) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  function contactSearcHandler(incomingString) {
+    setSearchString(incomingString)
+  }
+
   function renderApp() {
     if (isLoading) {
       return <Loader />;
@@ -39,7 +44,7 @@ function App(props) {
             height: 100%;
           `}
         >
-          <Header />
+          <Header handleSearch={contactSearcHandler} />
           <Route
             render={({ location }) => {
               return (
@@ -49,7 +54,7 @@ function App(props) {
                 >
                   <Switch location={location}>
                     <Route exact path="/">
-                      <ContactsPage />
+                      <ContactsPage contactSearch={searchString} />
                     </Route>
                     <Route path="/new">
                       <NewContactPage />

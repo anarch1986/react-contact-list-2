@@ -5,19 +5,21 @@ import { useHistory, useLocation } from "react-router-dom";
 
 import { colors } from "../theme.js";
 import { ReactComponent as VodafoneLogo } from "../assets/images/vodafone_logo.svg";
-import { Fragment } from "react";
+import { Fragment, useRef } from "react";
 
-function Header() {
+function Header(props) {
   const history = useHistory();
   const location = useLocation();
 
-  function inputHandler(inputEvent) {
-    console.log(inputEvent.target.value.toLowerCase());
-  }
+  const searchInputRef = useRef();
 
-  function searchHandler(event) {
-    event.preventDefault();
-    alert("SEARCHING");
+  function searchHandler() {
+    if (
+      searchInputRef.current.value &&
+      searchInputRef.current.value.trim() !== ""
+    ) {
+      props.handleSearch(searchInputRef.current.value);
+    }
   }
 
   function handleOnLogoClick() {
@@ -78,8 +80,8 @@ function Header() {
                 `}
                 type="text"
                 id="header-search"
-                onChange={inputHandler}
                 placeholder="Search for contact"
+                ref={searchInputRef}
               />
             </Col>
             <Col
