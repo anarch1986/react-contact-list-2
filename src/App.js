@@ -1,5 +1,8 @@
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 import { Route, Switch } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
+import { PageTransition } from "@steveeeie/react-page-transition";
 
 import "./App.scss";
 import ContactsPage from "./pages/ContactsPage";
@@ -31,25 +34,40 @@ function App(props) {
       return <Loader />;
     } else {
       return (
-        <div>
+        <div
+          css={css`
+            height: 100%;
+          `}
+        >
           <Header />
-          <Switch>
-            <Route exact path="/">
-              <ContactsPage />
-            </Route>
-            <Route path="/new">
-              <NewContactPage />
-            </Route>
-            <Route exact path="/edit/:id">
-              <EditContactPage />
-            </Route>
-            <Route exact path="/details/:id">
-              <ContactDetailsPage />
-            </Route>
-            <Route path="*">
-              <NotFoundPage />
-            </Route>
-          </Switch>
+          <Route
+            render={({ location }) => {
+              return (
+                <PageTransition
+                  preset="moveToLeftFromRight"
+                  transitionKey={location.pathname}
+                >
+                  <Switch location={location}>
+                    <Route exact path="/">
+                      <ContactsPage />
+                    </Route>
+                    <Route path="/new">
+                      <NewContactPage />
+                    </Route>
+                    <Route exact path="/edit/:id">
+                      <EditContactPage />
+                    </Route>
+                    <Route exact path="/details/:id">
+                      <ContactDetailsPage />
+                    </Route>
+                    <Route path="*">
+                      <NotFoundPage />
+                    </Route>
+                  </Switch>
+                </PageTransition>
+              );
+            }}
+          />
           <Footer />
           <AddNewButton />
         </div>

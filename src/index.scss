@@ -1,5 +1,12 @@
 @import "~bootstrap/scss/bootstrap";
 
+html,
+body,
+#root {
+  height: 100%;
+}
+
+
 @font-face {
   font-family: "OpenSansRegular";
   src: local("OpenSansRegular"),
@@ -15,3 +22,4 @@
 b {
   font-family: "OpenSansBold";
 }
+
