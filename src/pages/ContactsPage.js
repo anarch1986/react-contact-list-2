@@ -12,13 +12,15 @@ function ContactsPage(props) {
   const [contactsList, setContactList] = useState(contactsContext.contacts);
 
   useEffect(() => {
-    if (props.contactSearch && props.contactSearch.trim() !== "") {
+    if (props.contactSearch && props.contactSearch.trim() !== "" && props.contactSearch.trim() !== props.oldSearch.trim()) {
       const filteredContacts = contactsContext.contacts.filter(
         (contact) =>
           (contact.name.first.toLowerCase() + contact.name.last.toLowerCase())
             .includes(props.contactSearch.trim().toLowerCase())
       );
       setContactList(filteredContacts);
+    } else {
+      setContactList(contactsContext.contacts);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [props.contactSearch]);

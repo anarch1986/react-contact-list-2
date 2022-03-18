@@ -19,6 +19,7 @@ import ContactsContext from "./state/contacts-context";
 function App(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [searchString, setSearchString] = useState("");
+  const [oldSearchString, setOldSearchString] = useState("");
 
   const contactsContext = useContext(ContactsContext);
 
@@ -32,6 +33,9 @@ function App(props) {
 
   function contactSearcHandler(incomingString) {
     setSearchString(incomingString)
+    setTimeout(()=>{
+      setOldSearchString(incomingString)
+    }, 10)
   }
 
   function renderApp() {
@@ -54,7 +58,7 @@ function App(props) {
                 >
                   <Switch location={location}>
                     <Route exact path="/">
-                      <ContactsPage contactSearch={searchString} />
+                      <ContactsPage contactSearch={searchString} oldSearch={oldSearchString}/>
                     </Route>
                     <Route path="/new">
                       <NewContactPage />
