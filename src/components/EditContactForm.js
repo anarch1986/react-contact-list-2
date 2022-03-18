@@ -132,6 +132,7 @@ function EditContactForm(props) {
               `}
             >
               <Form.Label
+                htmlFor="first-name-input"
                 css={css`
                   width: 50%;
                   color: ${colors.grey};
@@ -141,6 +142,7 @@ function EditContactForm(props) {
                 First name
               </Form.Label>
               <Form.Control
+                id="first-name-input"
                 css={css`
                   text-align: left;
                 `}
@@ -148,7 +150,8 @@ function EditContactForm(props) {
                 ref={firstNameInputRef}
               />
             </Form.Group>
-            <div               css={css`
+            <div
+              css={css`
                 text-align: left;
                 padding-left: 210px;
                 @media (max-width: 1200px) {
@@ -169,7 +172,8 @@ function EditContactForm(props) {
                 @media (max-width: 400px) {
                   padding-left: 120px;
                 }
-              `}>
+              `}
+            >
               {isFirstNameError ? (
                 <small
                   css={css`
@@ -188,6 +192,7 @@ function EditContactForm(props) {
               `}
             >
               <Form.Label
+                htmlFor="last-name-input"
                 css={css`
                   width: 50%;
                   color: ${colors.grey};
@@ -197,6 +202,7 @@ function EditContactForm(props) {
                 Last name
               </Form.Label>
               <Form.Control
+                id="last-name-input"
                 css={css`
                   text-align: left;
                 `}
@@ -204,7 +210,8 @@ function EditContactForm(props) {
                 ref={lastNameInputRef}
               />
             </Form.Group>
-            <div               css={css`
+            <div
+              css={css`
                 text-align: left;
                 padding-left: 210px;
                 @media (max-width: 1200px) {
@@ -225,7 +232,8 @@ function EditContactForm(props) {
                 @media (max-width: 400px) {
                   padding-left: 120px;
                 }
-              `}>
+              `}
+            >
               {isLastNameError ? (
                 <small
                   css={css`
@@ -244,6 +252,7 @@ function EditContactForm(props) {
               `}
             >
               <Form.Label
+                htmlFor="email-input"
                 css={css`
                   width: 50%;
                   color: ${colors.grey};
@@ -253,6 +262,7 @@ function EditContactForm(props) {
                 Email
               </Form.Label>
               <Form.Control
+                id="email-input"
                 css={css`
                   text-align: left;
                 `}
@@ -260,7 +270,8 @@ function EditContactForm(props) {
                 ref={emailInputRef}
               />
             </Form.Group>
-            <div               css={css`
+            <div
+              css={css`
                 text-align: left;
                 padding-left: 210px;
                 @media (max-width: 1200px) {
@@ -281,7 +292,8 @@ function EditContactForm(props) {
                 @media (max-width: 400px) {
                   padding-left: 120px;
                 }
-              `}>
+              `}
+            >
               {isEmailError ? (
                 <small
                   css={css`
@@ -300,6 +312,7 @@ function EditContactForm(props) {
               `}
             >
               <Form.Label
+                htmlFor="phone-input"
                 css={css`
                   width: 50%;
                   color: ${colors.grey};
@@ -309,6 +322,7 @@ function EditContactForm(props) {
                 Phone
               </Form.Label>
               <Form.Control
+                id="phone-input"
                 css={css`
                   text-align: left;
                 `}
@@ -316,7 +330,8 @@ function EditContactForm(props) {
                 ref={phoneInputRef}
               />
             </Form.Group>
-            <div               css={css`
+            <div
+              css={css`
                 text-align: left;
                 padding-left: 210px;
                 @media (max-width: 1200px) {
@@ -337,7 +352,8 @@ function EditContactForm(props) {
                 @media (max-width: 400px) {
                   padding-left: 120px;
                 }
-              `}>
+              `}
+            >
               {isPhoneError ? (
                 <small
                   css={css`
@@ -356,6 +372,7 @@ function EditContactForm(props) {
               `}
             >
               <Form.Label
+                htmlFor="mage-url-input"
                 css={css`
                   width: 50%;
                   color: ${colors.grey};
@@ -365,6 +382,7 @@ function EditContactForm(props) {
                 Profile Image Url
               </Form.Label>
               <Form.Control
+                id="mage-url-input"
                 css={css`
                   text-align: left;
                 `}
@@ -372,7 +390,8 @@ function EditContactForm(props) {
                 ref={imageUrlInputRef}
               />
             </Form.Group>
-            <div               css={css`
+            <div
+              css={css`
                 text-align: left;
                 padding-left: 210px;
                 @media (max-width: 1200px) {
@@ -393,7 +412,8 @@ function EditContactForm(props) {
                 @media (max-width: 400px) {
                   padding-left: 120px;
                 }
-              `}>
+              `}
+            >
               {isImageUrlError ? (
                 <small
                   css={css`

@@ -14,11 +14,13 @@ function Header(props) {
   const searchInputRef = useRef();
 
   function searchHandler() {
+    const searchString = searchInputRef.current.value
     if (
-      searchInputRef.current.value &&
-      searchInputRef.current.value.trim() !== ""
+      searchString &&
+      searchString.trim() !== ""
     ) {
-      props.handleSearch(searchInputRef.current.value);
+      searchInputRef.current.value = ""
+      props.handleSearch(searchString);
     }
   }
 
