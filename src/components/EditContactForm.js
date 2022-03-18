@@ -30,6 +30,7 @@ function EditContactForm(props) {
   const [isLastNameError, setIsLastNameError] = useState(false);
   const [isEmailError, setIsEmailError] = useState(false);
   const [isPhoneError, setIsPhoneError] = useState(false);
+  const [isImageUrlError, setIsImageUrlError] = useState(false);
 
   function validateFiled(field) {
     if (field && field !== "" && field.length > 0) {
@@ -51,6 +52,7 @@ function EditContactForm(props) {
   const lastNameInputRef = useRef();
   const emailInputRef = useRef();
   const phoneInputRef = useRef();
+  const imageUrlInputRef = useRef();
 
   useEffect(() => {
     if (props.contact) {
@@ -58,6 +60,7 @@ function EditContactForm(props) {
       lastNameInputRef.current.value = props.contact.name.last;
       emailInputRef.current.value = props.contact.email;
       phoneInputRef.current.value = props.contact.phone;
+      imageUrlInputRef.current.value = props.contact.picture.large;
       setContact(props.contact);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -94,6 +97,14 @@ function EditContactForm(props) {
       setIsPhoneError(false);
     } else {
       setIsPhoneError(true);
+      isValid = false;
+    }
+
+    if (validateFiled(imageUrlInputRef.current.value)) {
+      contact.picture.large = imageUrlInputRef.current.value;
+      setIsImageUrlError(false);
+    } else {
+      setIsImageUrlError(true);
       isValid = false;
     }
 
@@ -137,8 +148,7 @@ function EditContactForm(props) {
                 ref={firstNameInputRef}
               />
             </Form.Group>
-            <div
-              css={css`
+            <div               css={css`
                 text-align: left;
                 padding-left: 210px;
                 @media (max-width: 1200px) {
@@ -159,8 +169,7 @@ function EditContactForm(props) {
                 @media (max-width: 400px) {
                   padding-left: 120px;
                 }
-              `}
-            >
+              `}>
               {isFirstNameError ? (
                 <small
                   css={css`
@@ -195,8 +204,7 @@ function EditContactForm(props) {
                 ref={lastNameInputRef}
               />
             </Form.Group>
-            <div
-              css={css`
+            <div               css={css`
                 text-align: left;
                 padding-left: 210px;
                 @media (max-width: 1200px) {
@@ -217,8 +225,7 @@ function EditContactForm(props) {
                 @media (max-width: 400px) {
                   padding-left: 120px;
                 }
-              `}
-            >
+              `}>
               {isLastNameError ? (
                 <small
                   css={css`
@@ -253,8 +260,7 @@ function EditContactForm(props) {
                 ref={emailInputRef}
               />
             </Form.Group>
-            <div
-              css={css`
+            <div               css={css`
                 text-align: left;
                 padding-left: 210px;
                 @media (max-width: 1200px) {
@@ -275,8 +281,7 @@ function EditContactForm(props) {
                 @media (max-width: 400px) {
                   padding-left: 120px;
                 }
-              `}
-            >
+              `}>
               {isEmailError ? (
                 <small
                   css={css`
@@ -311,8 +316,7 @@ function EditContactForm(props) {
                 ref={phoneInputRef}
               />
             </Form.Group>
-            <div
-              css={css`
+            <div               css={css`
                 text-align: left;
                 padding-left: 210px;
                 @media (max-width: 1200px) {
@@ -333,8 +337,7 @@ function EditContactForm(props) {
                 @media (max-width: 400px) {
                   padding-left: 120px;
                 }
-              `}
-            >
+              `}>
               {isPhoneError ? (
                 <small
                   css={css`
@@ -342,6 +345,62 @@ function EditContactForm(props) {
                   `}
                 >
                   Please provide a valid Phone number
+                </small>
+              ) : (
+                <small>&nbsp;</small>
+              )}
+            </div>
+            <Form.Group
+              css={css`
+                display: flex;
+              `}
+            >
+              <Form.Label
+                css={css`
+                  width: 50%;
+                  color: ${colors.grey};
+                  text-align: left;
+                `}
+              >
+                Profile Image Url
+              </Form.Label>
+              <Form.Control
+                css={css`
+                  text-align: left;
+                `}
+                type="tel"
+                ref={imageUrlInputRef}
+              />
+            </Form.Group>
+            <div               css={css`
+                text-align: left;
+                padding-left: 210px;
+                @media (max-width: 1200px) {
+                  padding-left: 150px;
+                }
+                @media (max-width: 992px) {
+                  padding-left: 220px;
+                }
+                @media (max-width: 768px) {
+                  padding-left: 170px;
+                }
+                @media (max-width: 576px) {
+                  padding-left: 160px;
+                }
+                @media (max-width: 470px) {
+                  padding-left: 140px;
+                }
+                @media (max-width: 400px) {
+                  padding-left: 120px;
+                }
+              `}>
+              {isImageUrlError ? (
+                <small
+                  css={css`
+                    color: ${colors.red};
+                  `}
+                >
+                  Please provide a valid image url
                 </small>
               ) : (
                 <small>&nbsp;</small>
