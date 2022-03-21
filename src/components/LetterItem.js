@@ -7,7 +7,7 @@ function LetterItem(props) {
 		props.onLetterClickHandler(props.letter)
 	}
   return (
-    <li
+    <li id={props.letter+"-letter"}
       css={css`
         display: inline;
         margin: 0 15px;

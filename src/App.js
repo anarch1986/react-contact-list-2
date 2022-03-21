@@ -33,6 +33,7 @@ function App(props) {
 
   function contactSearcHandler(incomingString) {
     setSearchString(incomingString)
+    // This one is a pretty dirty hack, but it's needed for the contact list update
     setTimeout(()=>{
       setOldSearchString(incomingString)
     }, 10)
