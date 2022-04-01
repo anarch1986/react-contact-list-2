@@ -10,6 +10,7 @@ function ContactsPage(props) {
   const contactsContext = useContext(ContactsContext);
 
   const [contactsList, setContactList] = useState(contactsContext.contacts);
+  // Store old search string here than you do not need to hack the flow by adding a time gap :)
   const [oldSearchString, setOldSearchString] = useState("");
 
   useEffect(() => {
