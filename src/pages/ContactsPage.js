@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect, Fragment } from "react";
+import { useState, useContext, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 import ContactsContext from "../state/contacts-context";
@@ -10,15 +10,17 @@ function ContactsPage(props) {
   const contactsContext = useContext(ContactsContext);
 
   const [contactsList, setContactList] = useState(contactsContext.contacts);
+  const [oldSearchString, setOldSearchString] = useState("");
 
   useEffect(() => {
-    if (props.contactSearch && props.contactSearch.trim() !== "" && props.contactSearch.trim() !== props.oldSearch.trim()) {
+    if (props.contactSearch && props.contactSearch.trim() !== "" && props.contactSearch.trim() !== oldSearchString.trim()) {
       const filteredContacts = contactsContext.contacts.filter(
         (contact) =>
           (contact.name.first.toLowerCase() + contact.name.last.toLowerCase())
             .includes(props.contactSearch.trim().toLowerCase())
       );
       setContactList(filteredContacts);
+      setOldSearchString(props.contactSearch)
     } else {
       setContactList(contactsContext.contacts);
     }
@@ -37,7 +39,7 @@ function ContactsPage(props) {
   }
 
   return (
-    <Fragment>
+    <div>
       <PageTitle pageTitle="Contacts" />
       <Container>
         <Row>
@@ -57,7 +59,7 @@ function ContactsPage(props) {
           </Col>
         </Row>
       </Container>
-    </Fragment>
+    </div>
   );
 }
 

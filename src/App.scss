@@ -15,3 +15,38 @@
     opacity: 1;
   }
 }
+
+// Transiton between page changes
+// Okey, this fade effect is not as cool and smooth as slide :D but it is the simpliest for trying out the transition group 
+.fade-appear,
+.fade-enter {
+  opacity: 0;
+	z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+	top: 0;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+	transition: opacity 800ms ease-in-out;
+  width: 100%;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  left: 0;
+	top: 0;
+  opacity: 0;
+  position: absolute;
+  transition: opacity 300ms ease-in-out;
+  width: 100%;
+}
+
+.transition-group {
+  position: relative;
+	min-height: calc(100vh - 240px);
+}

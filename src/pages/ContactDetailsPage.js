@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { Fragment, useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { Container, Row, Col, Button } from "react-bootstrap";
 
@@ -54,7 +54,8 @@ function ContactDetailsPage() {
   }, []);
 
   return (
-    <Fragment>
+    // Because of the transition real div is needed instead of Fregment
+    <div>
       <PageTitle
         pageTitle={contact.name.first + " " + contact.name.last + "'s Profile"}
       />
@@ -162,7 +163,7 @@ function ContactDetailsPage() {
           </Col>
         </Row>
       </Container>
-    </Fragment>
+    </div>
   );
 }
 

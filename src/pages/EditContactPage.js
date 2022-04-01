@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useParams, useHistory } from "react-router-dom";
 
 import PageTitle from "../components/PageTitle";
@@ -49,7 +49,7 @@ function EditContactPage() {
   }, []);
 
   return (
-    <Fragment>
+    <div>
       <PageTitle
         pageTitle={contact.name.first + " " + contact.name.last + "'s Profile"}
       />
@@ -57,7 +57,7 @@ function EditContactPage() {
         contact={contact}
         handleSaveContact={saveEditedContact}
       />
-    </Fragment>
+    </div>
   );
 }
 

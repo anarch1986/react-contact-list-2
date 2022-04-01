@@ -1,4 +1,4 @@
-import { Fragment, useContext } from "react";
+import {useContext } from "react";
 import { useHistory } from "react-router-dom";
 
 import PageTitle from "../components/PageTitle";
@@ -16,14 +16,14 @@ function NewContactPage() {
   }
 
   return (
-    <Fragment>
+    <div>
       <PageTitle
         pageTitle={"Add New Contact"}
       />
       <EditContactForm
         handleSaveContact={saveNewContact}
       />
-    </Fragment>
+    </div>
   );
 }
 
